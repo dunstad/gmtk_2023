@@ -1,5 +1,4 @@
 #### now
-- fix death zone getting stuck
 
 #### later
 - thrust
