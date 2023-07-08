@@ -1,7 +1,7 @@
 #### next?
-- hover particle
-- hover sound
+- script to change hover sound with speed
 - character
+- add music
 
 #### later
 - thrust
