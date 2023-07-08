@@ -1,5 +1,7 @@
 #### next?
-- backgrounds
+- hover particle
+- hover sound
+- character
 
 #### later
 - thrust
