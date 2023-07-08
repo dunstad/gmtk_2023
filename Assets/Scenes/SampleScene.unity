@@ -2400,6 +2400,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2505484425292110991, guid: 4c5d91a383abfeb4f885b972fc2bce7f, type: 3}
+      propertyPath: m_Mass
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2505484425292110991, guid: 4c5d91a383abfeb4f885b972fc2bce7f, type: 3}
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 6200000, guid: 42f762297a819ac448e48deeb106fee2, type: 2}
@@ -3683,7 +3687,7 @@ MonoBehaviour:
   maxHorizontalSpeed: 10
   maxMovementSpeed: 10
   acceleration: 100
-  brakeForce: 100
+  brakeForce: 0
   canCancelJump: 1
 --- !u!114 &1999818343
 MonoBehaviour:
@@ -3698,7 +3702,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 1999818342}
-  runSpeed: 40
+  runSpeed: 50
 --- !u!114 &1999818348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4276,7 +4280,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4705688653576775771, guid: 447048fde4b1d254abfd28a1480a5ce1, type: 3}
       propertyPath: m_DynamicOccludee
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4975846790415391226, guid: 447048fde4b1d254abfd28a1480a5ce1, type: 3}
       propertyPath: m_Creator

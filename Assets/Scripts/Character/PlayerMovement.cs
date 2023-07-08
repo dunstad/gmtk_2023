@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	public CharacterController2D controller;
 
-	public float runSpeed = 40f;
+	public float runSpeed = 50f;
 
 	float horizontalMove = 0f;
 	bool jump = false;
@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	void FixedUpdate ()
 	{
-		Debug.Log(horizontalMove);
+		Debug.Log($"Horizontal Move {horizontalMove}, fixedDeltaTime {Time.fixedDeltaTime}");
 		// Move our character
 		controller.Move(horizontalMove * Time.fixedDeltaTime, jump, jumpReleased);
 		jump = false;
