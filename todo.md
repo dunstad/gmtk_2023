@@ -1,5 +1,4 @@
 #### next?
-- script to change hover sound with speed
 - character
 - add music
 
