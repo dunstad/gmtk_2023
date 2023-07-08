@@ -5049,6 +5049,10 @@ PrefabInstance:
       propertyPath: heightText
       value: 
       objectReference: {fileID: 319531472}
+    - target: {fileID: 5273264966877108697, guid: 4c5d91a383abfeb4f885b972fc2bce7f, type: 3}
+      propertyPath: <ParentBody>k__BackingField
+      value: 
+      objectReference: {fileID: 1999818357}
     - target: {fileID: 5889266900244756927, guid: 4c5d91a383abfeb4f885b972fc2bce7f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5062,7 +5066,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1241450940367769169, guid: 4c5d91a383abfeb4f885b972fc2bce7f, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c5d91a383abfeb4f885b972fc2bce7f, type: 3}
