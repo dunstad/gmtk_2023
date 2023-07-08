@@ -8,7 +8,7 @@ public class MoveUp : MonoBehaviour
     private Vector3 startpos;
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         startpos = transform.position;
     }
