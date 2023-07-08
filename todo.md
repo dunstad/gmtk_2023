@@ -1,5 +1,6 @@
 #### next?
-- backgrounds
+- character
+- add music
 
 #### later
 - thrust

@@ -5,18 +5,20 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
 
 	public CharacterController2D controller;
-
-	public float runSpeed = 40f;
+	[field: SerializeField]
+	public Hoverboard Hoverboard { get; set; }
+	public float runSpeed = 50f;
 
 	float horizontalMove = 0f;
 	bool jump = false;
 	bool jumpReleased = false;
+	bool isAttached;
 	
 	// Update is called once per frame
 	void Update () {
 
 		horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
-
+		isAttached = Hoverboard.IsAttachedToSurface();
 		if (Input.GetButtonDown("Jump"))
 		{
 			jump = true;
@@ -30,10 +32,17 @@ public class PlayerMovement : MonoBehaviour {
 
 	void FixedUpdate ()
 	{
-		Debug.Log(horizontalMove);
 		// Move our character
 		controller.Move(horizontalMove * Time.fixedDeltaTime, jump, jumpReleased);
 		jump = false;
 		jumpReleased = false;
+	}
+	private void OnCollisionStay2D(Collision2D other)
+	{
+		Hoverboard.OnCollisionStay2D(other);
+	}
+	private void OnCollisionEnter2D(Collision2D other)
+	{
+		Hoverboard.OnCollisionEnter2D(other);
 	}
 }
