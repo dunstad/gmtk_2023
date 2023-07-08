@@ -25,8 +25,7 @@ public class CharacterController2D : MonoBehaviour
 	private Rigidbody2D m_rigidBody;
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 velocity = Vector3.zero;
-	private GameObject m_latchedSurface;
-	private Collision2D m_lastCollision;
+	
 
 	protected bool activated1 = false;
 	protected bool activated2 = false;
@@ -229,17 +228,5 @@ public class CharacterController2D : MonoBehaviour
 	{
 		Debug.Log("pick up 2");
 	}
-	private void OnCollisionStay2D(Collision2D other) 
-	{
-		List<ContactPoint2D> contactPoints = new List<ContactPoint2D>(15);
-		int count = other.GetContacts(contactPoints);
-		string pointsListStr = contactPoints.ToStringExt();
-		//Debug.Log($"Contact Point Count: {count}, Contact Points: {pointsListStr}");
-	}
-	private void OnCollisionEnter2D(Collision2D other) 
-	{
-		m_lastCollision = other;
-		m_latchedSurface = other.gameObject;
-		Debug.Log($"Collision: {m_lastCollision}");
-	}
+
 }
