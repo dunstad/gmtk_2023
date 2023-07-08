@@ -18,8 +18,19 @@ public class HurtOnTouch : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
+    private void OnTriggerEnter2D(Collider2D other)
+    {
         Health health = other.GetComponent<Health>();
+        if (health)
+        {
+            health.Hurt(damage);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        Debug.Log("hurt collision");
+        Health health = other.gameObject.GetComponent<Health>();
         if (health)
         {
             health.Hurt(damage);

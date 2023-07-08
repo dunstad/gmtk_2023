@@ -1,6 +1,9 @@
-#### now
+#### next?
+- backgrounds
 
 #### later
 - thrust
-- backgrounds
 - exit button
+- screenshake on rough landing
+- faster camera tracking?
+- fix wonky tiles?

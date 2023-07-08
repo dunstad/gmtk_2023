@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 5322844737688253356}
   - component: {fileID: 1439568637555584052}
   - component: {fileID: 4356976300843230988}
+  - component: {fileID: 4720471749463158800}
+  - component: {fileID: 3703934188733479070}
   m_Layer: 0
   m_Name: convex
   m_TagString: Untagged
@@ -32,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1971053207 &5322844737688253356
 SpriteShapeRenderer:
@@ -348,3 +350,30 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &4720471749463158800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3218267753056370287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16cb6182bbfbe1e4cb06d78d63904c8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startColor: {r: 0.31132078, g: 0, b: 0, a: 0}
+  endColor: {r: 0.7169812, g: 0.3462074, b: 0, a: 0}
+--- !u!114 &3703934188733479070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3218267753056370287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17bbe9227e1100d468d896640c1b558a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
