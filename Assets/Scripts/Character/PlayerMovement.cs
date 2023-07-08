@@ -37,4 +37,12 @@ public class PlayerMovement : MonoBehaviour {
 		jump = false;
 		jumpReleased = false;
 	}
+	private void OnCollisionStay2D(Collision2D other)
+	{
+		Hoverboard.OnCollisionStay2D(other);
+	}
+	private void OnCollisionEnter2D(Collision2D other)
+	{
+		Hoverboard.OnCollisionEnter2D(other);
+	}
 }

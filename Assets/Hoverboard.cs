@@ -26,14 +26,14 @@ public class Hoverboard : MonoBehaviour
     {
         return true;
     }
-    private void OnCollisionStay2D(Collision2D other) 
+    public void OnCollisionStay2D(Collision2D other)
 	{
 		List<ContactPoint2D> contactPoints = new List<ContactPoint2D>(15);
 		int count = other.GetContacts(contactPoints);
 		string pointsListStr = contactPoints.ToStringExt();
 		//Debug.Log($"Contact Point Count: {count}, Contact Points: {pointsListStr}");
 	}
-	private void OnCollisionEnter2D(Collision2D other) 
+	public void OnCollisionEnter2D(Collision2D other)
 	{
 		m_lastCollision = other;
 		m_latchedSurface = other.gameObject;
