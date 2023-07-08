@@ -38,7 +38,7 @@ public class Health : MonoBehaviour
             {
                 // Debug.Log("dead");
                 onDeath.Invoke();
-                Destroy(gameObject);
+                // Destroy(gameObject);
             }
         }
     }

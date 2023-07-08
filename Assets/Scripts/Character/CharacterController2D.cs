@@ -33,6 +33,9 @@ public class CharacterController2D : MonoBehaviour
 	// canceling will be lost on knockback or recoil
 	public bool canCancelJump = false;
 
+	private Vector3 startpos;
+	private int startHealth;
+
 	private void Awake()
 	{
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
@@ -179,6 +182,16 @@ public class CharacterController2D : MonoBehaviour
 		gameObject.layer = 6;
 		activated1 = false;
 		activated2 = false;
+
+		startpos = m_Rigidbody2D.position;
+		startHealth = gameObject.GetComponent<Health>().currentHealth;
+	}
+
+	public void Reset()
+	{
+		gameObject.GetComponent<Health>().currentHealth = startHealth;
+		gameObject.GetComponent<Rigidbody2D>().position = startpos;
+		gameObject.transform.position = startpos;
 	}
 
 	void OnActivate1(InputValue value)

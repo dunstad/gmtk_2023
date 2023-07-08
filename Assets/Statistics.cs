@@ -13,7 +13,7 @@ public class Statistics : MonoBehaviour
     public TMP_Text timeText;
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         time = 0f;
         startTime = Time.time;
