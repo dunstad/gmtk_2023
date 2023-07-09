@@ -1614,7 +1614,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 508873713}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4d28adfb06ef1e41af0ec82c26ceecf, type: 3}
   m_Name: 
@@ -4533,7 +4533,7 @@ GameObject:
   - component: {fileID: 1464739296}
   - component: {fileID: 1464739295}
   - component: {fileID: 1464739297}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5065,6 +5065,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1467195019}
   m_CullTransparentMesh: 1
+--- !u!114 &1495779149 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5273264966877108697, guid: 4c5d91a383abfeb4f885b972fc2bce7f, type: 3}
+  m_PrefabInstance: {fileID: 1523213443}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d629c6d7f5e27be4d9dfc9d273f7ec62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1523213443
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5073,9 +5084,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1961063035}
     m_Modifications:
+    - target: {fileID: 504219692459002077, guid: 4c5d91a383abfeb4f885b972fc2bce7f, type: 3}
+      propertyPath: <Hoverboard>k__BackingField
+      value: 
+      objectReference: {fileID: 1495779149}
+    - target: {fileID: 2505484423890292234, guid: 4c5d91a383abfeb4f885b972fc2bce7f, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2505484424340447654, guid: 4c5d91a383abfeb4f885b972fc2bce7f, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2505484424964195169, guid: 4c5d91a383abfeb4f885b972fc2bce7f, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2505484425292110987, guid: 4c5d91a383abfeb4f885b972fc2bce7f, type: 3}
       propertyPath: m_Name
       value: Character
+      objectReference: {fileID: 0}
+    - target: {fileID: 2505484425292110987, guid: 4c5d91a383abfeb4f885b972fc2bce7f, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2505484425292110988, guid: 4c5d91a383abfeb4f885b972fc2bce7f, type: 3}
       propertyPath: m_RootOrder
@@ -5121,6 +5152,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2505484425292110991, guid: 4c5d91a383abfeb4f885b972fc2bce7f, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3747034097577785187, guid: 4c5d91a383abfeb4f885b972fc2bce7f, type: 3}
+      propertyPath: m_WhatIsGround.Array.data[0].m_Bits
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4390700872372011711, guid: 4c5d91a383abfeb4f885b972fc2bce7f, type: 3}
+      propertyPath: vulnerable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4390700872372011711, guid: 4c5d91a383abfeb4f885b972fc2bce7f, type: 3}
       propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -5145,6 +5188,10 @@ PrefabInstance:
       propertyPath: <ParentBody>k__BackingField
       value: 
       objectReference: {fileID: 1999818357}
+    - target: {fileID: 5485489976243848044, guid: 4c5d91a383abfeb4f885b972fc2bce7f, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5889266900244756927, guid: 4c5d91a383abfeb4f885b972fc2bce7f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5155,6 +5202,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5889266900244756927, guid: 4c5d91a383abfeb4f885b972fc2bce7f, type: 3}
       propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6517331571258385195, guid: 4c5d91a383abfeb4f885b972fc2bce7f, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6517331571258385195, guid: 4c5d91a383abfeb4f885b972fc2bce7f, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

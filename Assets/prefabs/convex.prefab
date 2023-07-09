@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4356976300843230988}
   - component: {fileID: 4720471749463158800}
   - component: {fileID: 3703934188733479070}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: convex
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35,7 +35,7 @@ Transform:
   m_Children:
   - {fileID: 3431207516922367115}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1971053207 &5322844737688253356
 SpriteShapeRenderer:
@@ -47,7 +47,7 @@ SpriteShapeRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -433,6 +433,10 @@ PrefabInstance:
     - target: {fileID: 7173583079900201744, guid: 48954752ec1ebd34a82a2374ae6cd997, type: 3}
       propertyPath: m_Name
       value: embers
+      objectReference: {fileID: 0}
+    - target: {fileID: 7173583079900201744, guid: 48954752ec1ebd34a82a2374ae6cd997, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

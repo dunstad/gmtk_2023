@@ -65,7 +65,8 @@ public class Hoverboard : MonoBehaviour
     {
         var angle = Vector2.SignedAngle(new Vector2(0,1), newDirection);
         //Debug.Log($"Before set Rotation {ParentBody.rotation}, Setting to {angle}");
-        ParentBody.rotation = angle;
+        ParentBody.MoveRotation(angle);
+        //ParentBody.rotation = angle;
         BoardNormal = newDirection;
         BoardDirection = Vector2.Perpendicular(newDirection * -1);
     }
@@ -77,8 +78,11 @@ public class Hoverboard : MonoBehaviour
         // ContactPoint2D contactPoint = contactPoints.First();
 
         Vector2 downFromBoard = new Vector2(BoardDirection.y, -BoardDirection.x);
-        RaycastHit2D hit = Physics2D.Raycast(ParentBody.centerOfMass, downFromBoard);
-        Debug.Log($"BoardDirection {BoardDirection} Down from Board {downFromBoard}, Raycast Hit {hit.normal}");
+        int layerMask = 1 << LayerMask.NameToLayer("Terrain");
+        RaycastHit2D hit = Physics2D.Raycast(ParentBody.position, downFromBoard, Mathf.Infinity, layerMask);
+        Debug.Log($"Raycast Origin: {ParentBody.position}, Direction {downFromBoard}, Hit Normal: {hit.normal}, LayerMask {layerMask}");
+        Debug.Log($"Hit dist: {hit.distance}, Collider Obj: {hit.collider.gameObject}");
+        //Debug.Log($"BoardDirection {BoardDirection} Down from Board {downFromBoard}, Raycast Hit {hit.normal}");
 		var normal = hit.normal;
         if(normal == BoardNormal && normal != BoardNormal)
         {
