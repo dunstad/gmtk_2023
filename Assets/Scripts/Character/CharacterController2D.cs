@@ -96,7 +96,11 @@ public class CharacterController2D : MonoBehaviour
 				m_rigidBody.velocity = new Vector2(0f, m_rigidBody.velocity.y);
 			}
 		}
-
+	}
+	public void Jump(Vector2 jumpDirection)
+	{
+		Debug.Log($"Jump Force: {m_JumpForce}");
+		m_rigidBody.AddForce(jumpDirection * m_JumpForce, ForceMode2D.Impulse);
 	}
 
 	private void Flip()

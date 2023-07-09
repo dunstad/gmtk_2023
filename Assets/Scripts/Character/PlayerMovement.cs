@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour {
 	[field: SerializeField]
 	public Hoverboard Hoverboard { get; set; }
 	public float moveSpeed = 50f;
+	[field: SerializeField]
+	public float AngularSpeed { get; set; }
 
 	float horizontalMove = 0f;
 	bool isAttached;
@@ -26,17 +28,36 @@ public class PlayerMovement : MonoBehaviour {
 	void FixedUpdate ()
 	{
 		horizontalMove = (gas ? 1 : 0) + (brakes ? -1 : 0);
-		//Debug.Log($"Horizontal Move: {horizontalMove}");
 		isAttached = Hoverboard.IsAttachedToSurface();
+		//Debug.Log($"Horizontal Move: {horizontalMove}, IsAttached {isAttached}");
 		// Move our character
 		if(isAttached)
 		{
-			var move =  10 * horizontalMove * Hoverboard.BoardDirection * moveSpeed * Time.fixedDeltaTime;
+			var move =  400 * horizontalMove * Hoverboard.BoardDirection * moveSpeed * Time.fixedDeltaTime;
 			//Debug.Log($"Is Attached Move: {move}");
 			controller.Move(move);
+			if(jumpFlip)
+			{
+				jumpFlip = false;
+				controller.Jump(Hoverboard.BoardNormal);
+			}
+		}
+		else
+		{
+			//Debug.Log($"RotateCW {rotateCW}, RotateCCW {rotateCCW}");
+			if(rotateCW && !rotateCCW)
+			{
+				//Debug.Log("Rotating CW");
+				Hoverboard.RotateClockwise(AngularSpeed);
+			}
+			if(rotateCCW && !rotateCW)
+			{
+				//Debug.Log("Rotating CCW");
+				Hoverboard.RotateCounterClockwise(AngularSpeed);
+			}
 		}
 
-		controller.Move(10 * horizontalMove * Time.fixedDeltaTime * Vector2.right);
+		//controller.Move(10 * horizontalMove * Time.fixedDeltaTime * Vector2.right);
 	}
 	private void OnBoostThrust(InputValue value)
 	{
@@ -72,7 +93,7 @@ public class PlayerMovement : MonoBehaviour {
 	private void OnBrakes(InputValue value)
 	{
 		brakes = value.isPressed;
-		rotateCW = value.isPressed;
+		rotateCCW = value.isPressed;
 		string onOffStr = value.isPressed ? "On" : "Off" ;
 		Debug.Log($"Brakes {onOffStr}");
 	}

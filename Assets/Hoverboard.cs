@@ -61,6 +61,14 @@ public class Hoverboard : MonoBehaviour
         }
         return true;
     }
+    public void RotateClockwise(float degrees)
+    {
+        ParentBody.MoveRotation(ParentBody.rotation + degrees);
+    }
+    public void RotateCounterClockwise(float degrees)
+    {
+        RotateClockwise(-1 * degrees);
+    }
     public void SetRotationTo(Vector2 newDirection)
     {
         var angle = Vector2.SignedAngle(new Vector2(0,1), newDirection);
@@ -74,6 +82,7 @@ public class Hoverboard : MonoBehaviour
 	{
 		m_lastCollision = null;
         m_latchedSurface = null;
+        ParentBody.angularVelocity = 0;
         Debug.Log($"Collision Exit");
 	}
     public void OnCollisionStay2D(Collision2D other)
@@ -98,6 +107,9 @@ public class Hoverboard : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(ParentBody.centerOfMass, downFromBoard);
 		var normal = hit.normal;
         m_latchedSurface = hit.collider.gameObject;
+        // Debug.Log($"Raycast Origin: {ParentBody.position}, Direction {downFromBoard}, Hit Normal: {hit.normal}, LayerMask {layerMask}");
+        // Debug.Log($"Hit dist: {hit.distance}, Collider Obj: {hit.collider.gameObject}");
+        // Debug.Log($"BoardDirection {BoardDirection} Down from Board {downFromBoard}, Raycast Hit {hit.normal}");
         if(normal != BoardNormal)
         {  
             SetRotationTo(normal);

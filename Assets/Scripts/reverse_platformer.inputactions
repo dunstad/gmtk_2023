@@ -109,7 +109,7 @@
                     "name": "",
                     "id": "7eb359a4-88ef-46bc-a1f3-e7cb06379253",
                     "path": "<Keyboard>/space",
-                    "interactions": "Press(behavior=2)",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "",
                     "action": "JumpFlip",
