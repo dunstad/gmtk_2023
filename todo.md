@@ -1,7 +1,6 @@
 #### next?
 - resolution bug
 - end screen
-- better lava
 
 #### later
 - keep lava active when player dies
