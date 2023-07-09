@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 using TMPro;
 using System.Collections.Generic;
 using System;
+using System.Text;
 
 public class CharacterController2D : MonoBehaviour
 {
@@ -24,6 +25,8 @@ public class CharacterController2D : MonoBehaviour
 	private Rigidbody2D m_rigidBody;
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 velocity = Vector3.zero;
+	private GameObject m_latchedSurface;
+	private Collision2D m_lastCollision;
 
 	protected bool activated1 = false;
 	protected bool activated2 = false;
@@ -76,7 +79,7 @@ public class CharacterController2D : MonoBehaviour
 		float clampedVerticalSpeed = Mathf.Clamp(m_rigidBody.velocity.y, -maxVerticalSpeed, maxVerticalSpeed);
 		float clampedHorizontalSpeed = Mathf.Clamp(m_rigidBody.velocity.x, -maxHorizontalSpeed, maxHorizontalSpeed);
 		m_rigidBody.velocity = new Vector2(clampedHorizontalSpeed, clampedVerticalSpeed);
-		Debug.Log($"Velocity {m_rigidBody.velocity}, Gravity Scale {m_rigidBody.gravityScale}");
+		//Debug.Log($"Velocity {m_rigidBody.velocity}, Gravity Scale {m_rigidBody.gravityScale}");
 
 	}
 	
@@ -96,7 +99,7 @@ public class CharacterController2D : MonoBehaviour
 		if (m_Grounded || m_AirControl)
 		{
 			Vector3 thrustVector = new Vector2(move * 100, 0);
-			Debug.Log($"Added Force {thrustVector}");
+			//Debug.Log($"Added Force {thrustVector}");
 			m_rigidBody.AddForce(thrustVector, ForceMode2D.Force);
 			// Move the character by finding the target velocity
 			// Vector3 targetVelocity = new Vector3(move * acceleration * m_Rigidbody2D.mass, 0f, 0f);
@@ -204,7 +207,7 @@ public class CharacterController2D : MonoBehaviour
 
 	void Activate1()
 	{
-		Debug.Log("activate1");
+		//Debug.Log("activate1");
 	}
 
 	void OnActivate2(InputValue value)
@@ -225,5 +228,18 @@ public class CharacterController2D : MonoBehaviour
 	void OnPickUp2(InputValue value)
 	{
 		Debug.Log("pick up 2");
+	}
+	private void OnCollisionStay2D(Collision2D other) 
+	{
+		List<ContactPoint2D> contactPoints = new List<ContactPoint2D>(15);
+		int count = other.GetContacts(contactPoints);
+		string pointsListStr = contactPoints.ToStringExt();
+		//Debug.Log($"Contact Point Count: {count}, Contact Points: {pointsListStr}");
+	}
+	private void OnCollisionEnter2D(Collision2D other) 
+	{
+		m_lastCollision = other;
+		m_latchedSurface = other.gameObject;
+		Debug.Log($"Collision: {m_lastCollision}");
 	}
 }
