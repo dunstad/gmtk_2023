@@ -6,6 +6,7 @@ public class MoveUp : MonoBehaviour
 {
     public float speed;
     private Vector3 startpos;
+    public Rigidbody2D rb;
 
     // Start is called before the first frame update
     public void Start()
@@ -21,7 +22,8 @@ public class MoveUp : MonoBehaviour
 
     void FixedUpdate()
     {
-        transform.position = Vector2.MoveTowards(transform.position, transform.position + (Vector3.up * speed), Time.deltaTime);
+        Vector3 target = new Vector3(rb.position.x, transform.position.y + 1f, startpos.z);
+        transform.position = Vector2.MoveTowards(transform.position, target, Time.deltaTime * speed);
     }
 
     public void Reset()
