@@ -3812,17 +3812,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 394434010133900854, guid: 166bc4bfb23f64345a728520eefe4905, type: 3}
   m_PrefabInstance: {fileID: 890997807}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &925195853 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5273264966877108697, guid: 4c5d91a383abfeb4f885b972fc2bce7f, type: 3}
-  m_PrefabInstance: {fileID: 1523213443}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d629c6d7f5e27be4d9dfc9d273f7ec62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &964355252
 GameObject:
   m_ObjectHideFlags: 0
@@ -5596,7 +5585,7 @@ PrefabInstance:
     - target: {fileID: 504219692459002077, guid: 4c5d91a383abfeb4f885b972fc2bce7f, type: 3}
       propertyPath: <Hoverboard>k__BackingField
       value: 
-      objectReference: {fileID: 925195853}
+      objectReference: {fileID: 265985146}
     - target: {fileID: 504219692459002077, guid: 4c5d91a383abfeb4f885b972fc2bce7f, type: 3}
       propertyPath: <AngularSpeed>k__BackingField
       value: 7
