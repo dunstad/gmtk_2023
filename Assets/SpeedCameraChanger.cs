@@ -14,6 +14,7 @@ public class SpeedCameraChanger : MonoBehaviour
     public float highSpeed;
     public float lowFov;
     public float highFov;
+    public float fovStep;
     
     // Start is called before the first frame update
     void Start()
@@ -29,7 +30,20 @@ public class SpeedCameraChanger : MonoBehaviour
     {
         float speed = gameObject.GetComponent<Rigidbody2D>().velocity.magnitude;
         float speedRatio = speed/highSpeed;
-        float newFov = Mathf.Lerp((float) lowFov, (float) highFov, speedRatio);
-        Debug.Log($"Speed Magnitude: {speed}, SpeedRatio {speedRatio}, NewCameraFov: {newFov}");
+        float targetFov = Mathf.Lerp((float) lowFov, (float) highFov, speedRatio);
+        //Debug.Log($"Speed Magnitude: {speed}, SpeedRatio {speedRatio}, NewCameraFov: {newFov}");
+        float currentFov = PlayerCamera.m_Lens.FieldOfView;
+        float updatedFov = currentFov;
+        if(currentFov < targetFov - fovStep)
+        {
+            updatedFov = currentFov + fovStep;
+            Debug.Log($"CurrentFov: {currentFov}, TargetFov: {targetFov}, UpdatedFov: {updatedFov}");
+        }
+        if(currentFov > targetFov + fovStep)
+        {
+            updatedFov = currentFov - fovStep;
+            Debug.Log($"CurrentFov: {currentFov}, TargetFov: {targetFov}, UpdatedFov: {updatedFov}");
+        }
+        PlayerCamera.m_Lens.FieldOfView = updatedFov;
     }
 }
