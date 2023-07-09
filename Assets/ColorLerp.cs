@@ -31,7 +31,13 @@ public class ColorLerp : MonoBehaviour
         // }
         while (true) {
             var lerpedColor = Color.Lerp(startColor, endColor, (Mathf.Sin( Time.time / 2 ) + 1) / 2);
-            gameObject.GetComponent<UnityEngine.U2D.SpriteShapeRenderer>().color = lerpedColor;
+            if (gameObject.GetComponent<UnityEngine.U2D.SpriteShapeRenderer>())
+            {
+                gameObject.GetComponent<UnityEngine.U2D.SpriteShapeRenderer>().color = lerpedColor;
+            } else
+            {
+                gameObject.GetComponent<SpriteRenderer>().color = lerpedColor;
+            }
             yield return null;
         }
     }
