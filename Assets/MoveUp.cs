@@ -12,7 +12,7 @@ public class MoveUp : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
-        startpos = transform.position;
+        startpos = gameObject.GetComponentInChildren<Rigidbody2D>().position;
     }
 
     // Update is called once per frame
@@ -23,12 +23,13 @@ public class MoveUp : MonoBehaviour
 
     void FixedUpdate()
     {
+        Rigidbody2D myRB = gameObject.GetComponentInChildren<Rigidbody2D>();
         // Vector3 target = new Vector3(rb.position.x, transform.position.y + 1f, startpos.z);
-        Vector3 target = new Vector3(transform.position.x, transform.position.y + 1f, startpos.z);
-        Vector3 newPos = Vector2.MoveTowards(transform.position, target, Time.deltaTime * speed);
-        newPos.x = transform.position.x + ( (rb.position.x - transform.position.x) / xTrackingReduction );
+        Vector3 target = new Vector3(myRB.position.x, myRB.position.y + (1f * speed), startpos.z);
+        Vector3 newPos = Vector2.MoveTowards(myRB.position, target, Time.deltaTime * speed);
+        newPos.x = transform.position.x + ( (rb.position.x - myRB.position.x) / xTrackingReduction );
         // transform.position = newPos;
-        gameObject.GetComponentInChildren<Rigidbody2D>().MovePosition(newPos);
+        myRB.MovePosition(newPos);
     }
 
     public void Reset()
