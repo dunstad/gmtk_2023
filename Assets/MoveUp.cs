@@ -27,7 +27,8 @@ public class MoveUp : MonoBehaviour
         Vector3 target = new Vector3(transform.position.x, transform.position.y + 1f, startpos.z);
         Vector3 newPos = Vector2.MoveTowards(transform.position, target, Time.deltaTime * speed);
         newPos.x = transform.position.x + ( (rb.position.x - transform.position.x) / xTrackingReduction );
-        transform.position = newPos;
+        // transform.position = newPos;
+        gameObject.GetComponentInChildren<Rigidbody2D>().MovePosition(newPos);
     }
 
     public void Reset()

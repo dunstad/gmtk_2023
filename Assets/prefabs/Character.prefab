@@ -457,6 +457,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 3747034097577785187}
+  <BoostCost>k__BackingField: 0
+  <GroundBoostMultiplier>k__BackingField: 0
   <Hoverboard>k__BackingField: {fileID: 5273264966877108697}
   moveSpeed: 50
   <AngularSpeed>k__BackingField: 0
@@ -604,6 +606,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxBoost: 100
+  chargeRate: 0
+  <Hoverboard>k__BackingField: {fileID: 0}
   vulnerable: 0
   onHurt:
     m_PersistentCalls:

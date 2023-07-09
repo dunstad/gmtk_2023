@@ -1,6 +1,8 @@
 #### next?
 - resolution bug
 - end screen
+- logarithmic lava rising speed?
+- have background follow camera
 
 #### later
 - keep lava active when player dies
