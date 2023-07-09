@@ -5176,6 +5176,22 @@ PrefabInstance:
       propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 508873713}
+    - target: {fileID: 4526263765268731702, guid: 4c5d91a383abfeb4f885b972fc2bce7f, type: 3}
+      propertyPath: m_Size.x
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526263765268731702, guid: 4c5d91a383abfeb4f885b972fc2bce7f, type: 3}
+      propertyPath: m_Size.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526263765268731702, guid: 4c5d91a383abfeb4f885b972fc2bce7f, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526263765268731702, guid: 4c5d91a383abfeb4f885b972fc2bce7f, type: 3}
+      propertyPath: m_Direction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5256038637162519273, guid: 4c5d91a383abfeb4f885b972fc2bce7f, type: 3}
       propertyPath: timeText
       value: 

@@ -27,9 +27,6 @@ public class CharacterController2D : MonoBehaviour
 	private Vector3 velocity = Vector3.zero;
 	
 
-	protected bool activated1 = false;
-	protected bool activated2 = false;
-
 
 	// so variable jump height can't cancel vertical momentum if you didn't jump
 	// canceling will be lost on knockback or recoil
@@ -45,18 +42,10 @@ public class CharacterController2D : MonoBehaviour
 
 	private void Update()
 	{
-
-		if (activated1)
-		{
-			Activate1();
-		}
-		if (activated2)
-		{
-			Activate2();
-		}
 	}
 
-
+	
+	
 	private void FixedUpdate()
 	{
 		m_Grounded = false;
@@ -92,37 +81,13 @@ public class CharacterController2D : MonoBehaviour
 	}
 
 
-	public void Move(Vector2 move, bool jump, bool jumpReleased)
+	public void Move(Vector2 move)
 	{
 		//only control the player if grounded or airControl is turned on
 		if (m_Grounded || m_AirControl)
 		{
 			//Vector3 thrustVector = new Vector2(move * 100, 0);
-			//Debug.Log($"Added Force {thrustVector}");
 			m_rigidBody.AddForce(move, ForceMode2D.Force);
-			// Move the character by finding the target velocity
-			// Vector3 targetVelocity = new Vector3(move * acceleration * m_Rigidbody2D.mass, 0f, 0f);
-
-			// // if not at top speed
-			// if (Math.Abs(m_Rigidbody2D.velocity.x) < maxHorizontalSpeed)
-			// {
-			// 	m_Rigidbody2D.AddForce(targetVelocity, ForceMode2D.Force);
-			// }
-
-			// // brake force
-			// float moveSign = move / Math.Abs(move);
-			// float xSign = m_Rigidbody2D.velocity.x / Math.Abs(m_Rigidbody2D.velocity.x);
-			// bool movingOppositeMomentum = moveSign != xSign && Math.Abs(m_Rigidbody2D.velocity.x) > .05f;
-			// if (movingOppositeMomentum)
-			// {
-			// 	m_Rigidbody2D.AddForce(new Vector3(-xSign * (brakeForce * m_Rigidbody2D.mass), 0f, 0f), ForceMode2D.Force);
-			// }
-			// // brake down from bonus recoil speed (or other) to normal speed
-			// bool overTopSpeed = Math.Abs(m_Rigidbody2D.velocity.x) > maxMovementSpeed;
-			// if (overTopSpeed)
-			// {
-			// 	m_Rigidbody2D.AddForce(new Vector3(-xSign * .3f * (brakeForce * m_Rigidbody2D.mass), 0f, 0f), ForceMode2D.Force);
-			// }
 
 			// actually stop when slow
 			// without this we roll forever due to frictionless material
@@ -130,44 +95,8 @@ public class CharacterController2D : MonoBehaviour
 			{
 				m_rigidBody.velocity = new Vector2(0f, m_rigidBody.velocity.y);
 			}
-
-			// // If the input is moving the player right and the player is facing left...
-			// if (move > 0 && !m_FacingRight)
-			// {
-			// 	// ... flip the player.
-			// 	Flip();
-			// }
-			// // Otherwise if the input is moving the player left and the player is facing right...
-			// else if (move < 0 && m_FacingRight)
-			// {
-			// 	// ... flip the player.
-			// 	Flip();
-			// }
 		}
-		// // If the player should jump...
-		// if (m_Grounded && jump)
-		// {
-		// 	// Add a vertical force to the player.
-		// 	m_Grounded = false;
-		// 	canCancelJump = true;
-		// 	m_rigidBody.AddForce(new Vector2(0f, m_JumpForce));
-		// }
 
-		// // variable jump height
-		// if (canCancelJump && jumpReleased)
-		// {
-		// 	if (m_rigidBody.velocity.y > 0f)
-		// 	{
-		// 		m_rigidBody.velocity = new Vector3(m_rigidBody.velocity.x, 0f, 0f);
-		// 	}
-			
-		// }
-
-		// // to prevent jump cancelling from being used to stop falls
-		// if (m_rigidBody.velocity.y < -.5f)
-		// {
-		// 	canCancelJump = false;
-		// }
 	}
 
 	private void Flip()
@@ -185,8 +114,6 @@ public class CharacterController2D : MonoBehaviour
 	{
 		gameObject.tag = "Player";
 		gameObject.layer = 6;
-		activated1 = false;
-		activated2 = false;
 
 		startpos = m_rigidBody.position;
 		startHealth = gameObject.GetComponent<Health>().currentHealth;
@@ -198,35 +125,4 @@ public class CharacterController2D : MonoBehaviour
 		gameObject.GetComponent<Rigidbody2D>().position = startpos;
 		gameObject.transform.position = startpos;
 	}
-
-	void OnActivate1(InputValue value)
-	{
-		activated1 = value.isPressed;
-	}
-
-	void Activate1()
-	{
-		//Debug.Log("activate1");
-	}
-
-	void OnActivate2(InputValue value)
-	{
-		activated2 = value.isPressed;
-	}
-
-	void Activate2()
-	{
-		Debug.Log("activate2");
-	}
-
-	void OnPickUp1(InputValue value)
-	{
-		Debug.Log("pick up 1");
-	}
-
-	void OnPickUp2(InputValue value)
-	{
-		Debug.Log("pick up 2");
-	}
-
 }
