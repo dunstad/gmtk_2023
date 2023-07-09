@@ -85,7 +85,7 @@ public class CharacterController2D : MonoBehaviour
 	{
 		//Vector3 thrustVector = new Vector2(move * 100, 0);
 		m_rigidBody.AddForce(move, ForceMode2D.Force);
-		Debug.Log($"Move Force: {move}, Rigidbody Speed: {m_rigidBody.velocity}");
+		//Debug.Log($"Move Force: {move}, Rigidbody Speed: {m_rigidBody.velocity}");
 		// actually stop when slow
 		// without this we roll forever due to frictionless material
 	}

@@ -7,6 +7,25 @@ using UnityEngine;
 public class Hoverboard : MonoBehaviour
 {
     private GameObject m_latchedSurface;
+    private GameObject LatchedSurface 
+    { 
+        get
+        {
+            return m_latchedSurface;
+        }
+        set
+        {
+            if(value == null && m_latchedSurface != null)
+            {
+                Debug.Log($"Leaving latched surface {m_latchedSurface.ToString()}");
+            }
+            if(m_latchedSurface == null && value != null)
+            {
+                Debug.Log($"Attaching to surface {value.ToString()}");
+            }
+            m_latchedSurface = value;
+        }
+    }
 	private Collision2D m_lastCollision;
     private Vector2 m_boardDirection = new Vector2(1,0).normalized;
     private Vector2 m_boardNormal;
@@ -56,12 +75,36 @@ public class Hoverboard : MonoBehaviour
     }
     void FixedUpdate() 
     {
-    
+        Vector2 downBoardForce = BoardNormal * -1 * 500;
+        if(IsAttachedToSurface())
+        {
+            ParentBody.AddForce(downBoardForce);
+        }
+        else
+        {
+            int layerMask = 1 << LayerMask.NameToLayer("Terrain");
+            RaycastHit2D hit = Physics2D.Raycast(ParentBody.position, downBoardForce, 10, layerMask);
+            if(hit.collider != null)
+            {
+                Debug.Log($"Not attached, but raycast hit {hit.collider.name}");
+                if(hit.distance < 1f)
+                {
+                    Debug.Log($"Not Latched on, but close enough to apply the force: Distance = {hit.distance}, Collider = {hit.collider}");
+                    ParentBody.AddForce(downBoardForce);
+                    LatchedSurface = hit.collider.gameObject;
+                }
+            }
+            else
+            {
+                LatchedSurface = null;
+            }
+            
+        }
     }
 
     public bool IsAttachedToSurface()
     {
-        if(m_latchedSurface == null)
+        if(LatchedSurface == null)
         {
             return false;
         }
@@ -93,7 +136,7 @@ public class Hoverboard : MonoBehaviour
     public void OnCollisionExit2D(Collision2D other) 
 	{
 		m_lastCollision = null;
-        m_latchedSurface = null;
+        LatchedSurface = null;
         ParentBody.angularVelocity = 0;
         Debug.Log($"Collision Exit");
 	}
@@ -118,7 +161,7 @@ public class Hoverboard : MonoBehaviour
         Vector2 downFromBoard = new Vector2(BoardDirection.y, -BoardDirection.x);
         RaycastHit2D hit = Physics2D.Raycast(ParentBody.centerOfMass, downFromBoard);
 		var normal = hit.normal;
-        m_latchedSurface = hit.collider.gameObject;
+        LatchedSurface = hit.collider.gameObject;
         // Debug.Log($"Raycast Origin: {ParentBody.position}, Direction {downFromBoard}, Hit Normal: {hit.normal}, LayerMask {layerMask}");
         // Debug.Log($"Hit dist: {hit.distance}, Collider Obj: {hit.collider.gameObject}");
         // Debug.Log($"BoardDirection {BoardDirection} Down from Board {downFromBoard}, Raycast Hit {hit.normal}");
