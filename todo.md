@@ -2,7 +2,6 @@
 - resolution bug
 - end screen
 - better lava
-- make reset function reset player velocity
 
 #### later
 - keep lava active when player dies

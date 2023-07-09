@@ -119,6 +119,10 @@ public class CharacterController2D : MonoBehaviour
 	{
 		gameObject.GetComponent<Health>().currentHealth = startHealth;
 		gameObject.GetComponent<Rigidbody2D>().position = startpos;
+		gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+		gameObject.GetComponent<Rigidbody2D>().rotation = 0f;
+		gameObject.GetComponent<Rigidbody2D>().angularVelocity = 0f;
+		gameObject.GetComponent<PlayerMovement>().Reset();
 		gameObject.transform.position = startpos;
 	}
 }

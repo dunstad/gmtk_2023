@@ -24,6 +24,17 @@ public class PlayerMovement : MonoBehaviour {
 	bool boostThrust = false;
 	bool brakes = false;
 	bool gas = false;
+
+	public void Reset()
+	{
+		isAttached = false;
+		rotateCCW = false;
+		rotateCW = false;
+		jumpFlip = false;
+		boostThrust = false;
+		brakes = false;
+		gas = false;
+	}
 	
 	// Update is called once per frame
 	void Update () {
