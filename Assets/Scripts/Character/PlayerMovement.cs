@@ -33,7 +33,8 @@ public class PlayerMovement : MonoBehaviour {
 		// Move our character
 		if(isAttached)
 		{
-			var move =  400 * horizontalMove * Hoverboard.BoardDirection * moveSpeed * Time.fixedDeltaTime;
+			float boost = boostThrust ? 10.5f : 1;
+			var move =  Hoverboard.BoardSpeed * horizontalMove * moveSpeed * boost * Time.fixedDeltaTime * Hoverboard.BoardDirection;
 			//Debug.Log($"Is Attached Move: {move}");
 			controller.Move(move);
 			if(jumpFlip)
@@ -44,6 +45,12 @@ public class PlayerMovement : MonoBehaviour {
 		}
 		else
 		{
+			if(boostThrust)
+			{
+				var thrustForce = Hoverboard.BoardNormal * Hoverboard.ThrustForce;
+				//Debug.Log($"BoostVector: {thrustForce}");
+				controller.Move(thrustForce);
+			}
 			//Debug.Log($"RotateCW {rotateCW}, RotateCCW {rotateCCW}");
 			if(rotateCW && !rotateCCW)
 			{
@@ -86,14 +93,14 @@ public class PlayerMovement : MonoBehaviour {
 	private void OnGas(InputValue value)
 	{
 		gas = value.isPressed;
-		rotateCW = value.isPressed;
+		rotateCCW = value.isPressed;
 		string onOffStr = value.isPressed ? "On" : "Off" ;
 		Debug.Log($"Gas {onOffStr}");
 	}
 	private void OnBrakes(InputValue value)
 	{
 		brakes = value.isPressed;
-		rotateCCW = value.isPressed;
+		rotateCW = value.isPressed;
 		string onOffStr = value.isPressed ? "On" : "Off" ;
 		Debug.Log($"Brakes {onOffStr}");
 	}

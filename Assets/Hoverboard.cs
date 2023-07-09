@@ -10,6 +10,11 @@ public class Hoverboard : MonoBehaviour
 	private Collision2D m_lastCollision;
     private Vector2 m_boardDirection = new Vector2(1,0).normalized;
     private Vector2 m_boardNormal;
+    [field: SerializeField]
+    public float BoardSpeed { get; set; }
+
+    [field: SerializeField]
+    public float ThrustForce { get; set; }
 
     [field: SerializeField]
     public Rigidbody2D ParentBody { get; set; }
@@ -63,7 +68,13 @@ public class Hoverboard : MonoBehaviour
     }
     public void RotateClockwise(float degrees)
     {
-        ParentBody.MoveRotation(ParentBody.rotation + degrees);
+        float newAngle = ParentBody.rotation + degrees;
+        //Vector3 newBoardNormal3 = Quaternion.Euler(0, 0, degrees) * BoardNormal;
+        Vector3 newBoardNormal3 = Quaternion.Euler(0,0, newAngle) * new Vector3(0,1,0);
+        Vector2 newBoardNormal2 = new Vector2(newBoardNormal3.x, newBoardNormal3.y);
+        //Debug.Log($"Board Normal: {BoardNormal}, New Board Normal: {newBoardNormal2}, New Board Normal 3: {newBoardNormal3}");
+        BoardNormal = newBoardNormal2.normalized;
+        ParentBody.MoveRotation(newAngle);
     }
     public void RotateCounterClockwise(float degrees)
     {

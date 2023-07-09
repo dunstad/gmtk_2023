@@ -5544,6 +5544,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3747034097577785187, guid: 4c5d91a383abfeb4f885b972fc2bce7f, type: 3}
+      propertyPath: maxMovementSpeed
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3747034097577785187, guid: 4c5d91a383abfeb4f885b972fc2bce7f, type: 3}
+      propertyPath: maxHorizontalSpeed
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3747034097577785187, guid: 4c5d91a383abfeb4f885b972fc2bce7f, type: 3}
       propertyPath: m_WhatIsGround.Array.data[0].m_Bits
       value: 8
       objectReference: {fileID: 0}
@@ -5565,15 +5573,15 @@ PrefabInstance:
       objectReference: {fileID: 508873713}
     - target: {fileID: 4526263765268731702, guid: 4c5d91a383abfeb4f885b972fc2bce7f, type: 3}
       propertyPath: m_Size.x
-      value: 1.3
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 4526263765268731702, guid: 4c5d91a383abfeb4f885b972fc2bce7f, type: 3}
       propertyPath: m_Size.y
-      value: 0.1
+      value: 0.09
       objectReference: {fileID: 0}
     - target: {fileID: 4526263765268731702, guid: 4c5d91a383abfeb4f885b972fc2bce7f, type: 3}
       propertyPath: m_Offset.y
-      value: -0.53
+      value: -0.75
       objectReference: {fileID: 0}
     - target: {fileID: 4526263765268731702, guid: 4c5d91a383abfeb4f885b972fc2bce7f, type: 3}
       propertyPath: m_Direction
@@ -5588,9 +5596,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 319531472}
     - target: {fileID: 5273264966877108697, guid: 4c5d91a383abfeb4f885b972fc2bce7f, type: 3}
+      propertyPath: <BoardSpeed>k__BackingField
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 5273264966877108697, guid: 4c5d91a383abfeb4f885b972fc2bce7f, type: 3}
       propertyPath: <ParentBody>k__BackingField
       value: 
       objectReference: {fileID: 1999818357}
+    - target: {fileID: 5273264966877108697, guid: 4c5d91a383abfeb4f885b972fc2bce7f, type: 3}
+      propertyPath: <ThrustForce>k__BackingField
+      value: 1500
+      objectReference: {fileID: 0}
     - target: {fileID: 5485489976243848044, guid: 4c5d91a383abfeb4f885b972fc2bce7f, type: 3}
       propertyPath: m_Layer
       value: 0

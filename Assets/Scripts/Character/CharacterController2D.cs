@@ -83,19 +83,11 @@ public class CharacterController2D : MonoBehaviour
 
 	public void Move(Vector2 move)
 	{
-		//only control the player if grounded or airControl is turned on
-		if (m_Grounded || m_AirControl)
-		{
-			//Vector3 thrustVector = new Vector2(move * 100, 0);
-			m_rigidBody.AddForce(move, ForceMode2D.Force);
-
-			// actually stop when slow
-			// without this we roll forever due to frictionless material
-			if (Math.Abs(m_rigidBody.velocity.x) < 1f)
-			{
-				m_rigidBody.velocity = new Vector2(0f, m_rigidBody.velocity.y);
-			}
-		}
+		//Vector3 thrustVector = new Vector2(move * 100, 0);
+		m_rigidBody.AddForce(move, ForceMode2D.Force);
+		Debug.Log($"Move Force: {move}, Rigidbody Speed: {m_rigidBody.velocity}");
+		// actually stop when slow
+		// without this we roll forever due to frictionless material
 	}
 	public void Jump(Vector2 jumpDirection)
 	{
