@@ -92,14 +92,14 @@ public class CharacterController2D : MonoBehaviour
 	}
 
 
-	public void Move(float move, bool jump, bool jumpReleased)
+	public void Move(Vector2 move, bool jump, bool jumpReleased)
 	{
 		//only control the player if grounded or airControl is turned on
 		if (m_Grounded || m_AirControl)
 		{
-			Vector3 thrustVector = new Vector2(move * 100, 0);
+			//Vector3 thrustVector = new Vector2(move * 100, 0);
 			//Debug.Log($"Added Force {thrustVector}");
-			m_rigidBody.AddForce(thrustVector, ForceMode2D.Force);
+			m_rigidBody.AddForce(move, ForceMode2D.Force);
 			// Move the character by finding the target velocity
 			// Vector3 targetVelocity = new Vector3(move * acceleration * m_Rigidbody2D.mass, 0f, 0f);
 
@@ -131,18 +131,18 @@ public class CharacterController2D : MonoBehaviour
 				m_rigidBody.velocity = new Vector2(0f, m_rigidBody.velocity.y);
 			}
 
-			// If the input is moving the player right and the player is facing left...
-			if (move > 0 && !m_FacingRight)
-			{
-				// ... flip the player.
-				Flip();
-			}
-			// Otherwise if the input is moving the player left and the player is facing right...
-			else if (move < 0 && m_FacingRight)
-			{
-				// ... flip the player.
-				Flip();
-			}
+			// // If the input is moving the player right and the player is facing left...
+			// if (move > 0 && !m_FacingRight)
+			// {
+			// 	// ... flip the player.
+			// 	Flip();
+			// }
+			// // Otherwise if the input is moving the player left and the player is facing right...
+			// else if (move < 0 && m_FacingRight)
+			// {
+			// 	// ... flip the player.
+			// 	Flip();
+			// }
 		}
 		// // If the player should jump...
 		// if (m_Grounded && jump)
