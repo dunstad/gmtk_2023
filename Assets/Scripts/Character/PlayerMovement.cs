@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour {
 	public CharacterController2D controller;
 	[field: SerializeField]
 	public Hoverboard Hoverboard { get; set; }
-	public float runSpeed = 50f;
+	public float moveSpeed = 50f;
 
 	float horizontalMove = 0f;
 	bool jump = false;
@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+		horizontalMove = Input.GetAxisRaw("Horizontal") * moveSpeed;
 		isAttached = Hoverboard.IsAttachedToSurface();
 		if (Input.GetButtonDown("Jump"))
 		{
@@ -33,7 +33,12 @@ public class PlayerMovement : MonoBehaviour {
 	void FixedUpdate ()
 	{
 		// Move our character
-		controller.Move(horizontalMove * Time.fixedDeltaTime, jump, jumpReleased);
+		// if(isAttached)
+		// {
+		// 	var move = Hoverboard.BoardDirection * moveSpeed * Time.fixedDeltaTime;
+		// 	controller.Move(move, jump, jumpReleased);
+		// }
+		controller.Move(100 * horizontalMove * Time.fixedDeltaTime * Vector2.right, jump, jumpReleased);
 		jump = false;
 		jumpReleased = false;
 	}
