@@ -1,7 +1,6 @@
 #### next?
 - resolution bug
 - end screen
-- have background follow camera
 - logarithmic lava rising speed?
 
 #### later
