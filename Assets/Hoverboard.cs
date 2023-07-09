@@ -39,6 +39,7 @@ public class Hoverboard : MonoBehaviour
         set
         {
             m_boardNormal = value.normalized;
+            BoardDirection = Vector2.Perpendicular(m_boardNormal * -1);
         } 
     }
     
@@ -55,7 +56,7 @@ public class Hoverboard : MonoBehaviour
     }
     void FixedUpdate() 
     {
-        
+    
     }
 
     public bool IsAttachedToSurface()
@@ -87,7 +88,7 @@ public class Hoverboard : MonoBehaviour
         ParentBody.MoveRotation(angle);
         //ParentBody.rotation = angle;
         BoardNormal = newDirection;
-        BoardDirection = Vector2.Perpendicular(newDirection * -1);
+        //BoardDirection = Vector2.Perpendicular(newDirection * -1);
     }
     public void OnCollisionExit2D(Collision2D other) 
 	{
