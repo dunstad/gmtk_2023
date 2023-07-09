@@ -165,6 +165,7 @@ GameObject:
   - component: {fileID: 4390700872372011711}
   - component: {fileID: 5256038637162519273}
   - component: {fileID: 4526263765268731702}
+  - component: {fileID: 981867166960479010}
   m_Layer: 6
   m_Name: Character
   m_TagString: Player
@@ -471,7 +472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 159c8c0a5a01f8f4192e36f1751e1747, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1
+  maxHealth: 100
   vulnerable: 1
   onHurt:
     m_PersistentCalls:
@@ -590,6 +591,26 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.5, y: 1.4}
   m_Direction: 0
+--- !u!114 &981867166960479010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2505484425292110987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1fe066370d5a2d45b76ce3747d41857, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxBoost: 100
+  vulnerable: 0
+  onHurt:
+    m_PersistentCalls:
+      m_Calls: []
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &6517331571258385195
 GameObject:
   m_ObjectHideFlags: 0

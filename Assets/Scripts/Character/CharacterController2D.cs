@@ -112,7 +112,7 @@ public class CharacterController2D : MonoBehaviour
 		gameObject.layer = 6;
 
 		startpos = m_rigidBody.position;
-		startHealth = gameObject.GetComponent<Health>().currentHealth;
+		startHealth = gameObject.GetComponent<Health>().maxHealth;
 	}
 
 	public void Reset()
