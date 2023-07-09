@@ -30,6 +30,8 @@ public class Hoverboard : MonoBehaviour
     private Vector2 m_boardDirection = new Vector2(1,0).normalized;
     private Vector2 m_boardNormal;
     [field: SerializeField]
+    public float LatchDistance { get; set; }
+    [field: SerializeField]
     public float BoardSpeed { get; set; }
 
     [field: SerializeField]
@@ -87,7 +89,7 @@ public class Hoverboard : MonoBehaviour
             if(hit.collider != null)
             {
                 Debug.Log($"Not attached, but raycast hit {hit.collider.name}");
-                if(hit.distance < 1f)
+                if(hit.distance < LatchDistance)
                 {
                     Debug.Log($"Not Latched on, but close enough to apply the force: Distance = {hit.distance}, Collider = {hit.collider}");
                     ParentBody.AddForce(downBoardForce);

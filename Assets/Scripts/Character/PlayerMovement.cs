@@ -65,12 +65,12 @@ public class PlayerMovement : MonoBehaviour {
 			//Debug.Log($"RotateCW {rotateCW}, RotateCCW {rotateCCW}");
 			if(rotateCW && !rotateCCW)
 			{
-				//Debug.Log("Rotating CW");
+				Debug.Log("Rotating CW");
 				Hoverboard.RotateClockwise(AngularSpeed);
 			}
 			if(rotateCCW && !rotateCW)
 			{
-				//Debug.Log("Rotating CCW");
+				Debug.Log("Rotating CCW");
 				Hoverboard.RotateCounterClockwise(AngularSpeed);
 			}
 		}
@@ -92,14 +92,14 @@ public class PlayerMovement : MonoBehaviour {
 	private void OnRotateCCW(InputValue value)
 	{
 		rotateCCW = value.isPressed;
-		// string onOffStr = value.isPressed ? "On" : "Off" ;
-		// Debug.Log($"RotateCCW {onOffStr}");
+		string onOffStr = value.isPressed ? "On" : "Off" ;
+		Debug.Log($"RotateCCW {onOffStr}");
 	}
 	private void OnRotateCW(InputValue value)
 	{
 		rotateCW = value.isPressed;
-		// string onOffStr = value.isPressed ? "On" : "Off" ;
-		// Debug.Log($"RotateCW {onOffStr}");
+		string onOffStr = value.isPressed ? "On" : "Off" ;
+		Debug.Log($"RotateCW {onOffStr}");
 	}
 	private void OnGas(InputValue value)
 	{
