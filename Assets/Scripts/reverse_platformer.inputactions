@@ -64,7 +64,7 @@
                 {
                     "name": "",
                     "id": "e4e841ea-ff1e-45f9-aceb-df0421e3ef5f",
-                    "path": "<Keyboard>/e",
+                    "path": "<Keyboard>/q",
                     "interactions": "Press(behavior=2)",
                     "processors": "",
                     "groups": "",
@@ -86,7 +86,7 @@
                 {
                     "name": "",
                     "id": "44f0e4be-b9df-49f5-bcfa-657b9094ffca",
-                    "path": "<Keyboard>/q",
+                    "path": "<Keyboard>/e",
                     "interactions": "Press(behavior=2)",
                     "processors": "",
                     "groups": "",
