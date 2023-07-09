@@ -8,6 +8,9 @@ public class Boost : MonoBehaviour
 {
     [SerializeField] public int maxBoost;
     [NonSerialized] public int currentBoost;
+    [SerializeField] public int chargeRate;
+    [field: SerializeField]
+	public Hoverboard Hoverboard { get; set; }
     public bool vulnerable;
     public UnityEvent onHurt;
     public UnityEvent onDeath;
@@ -45,7 +48,10 @@ public class Boost : MonoBehaviour
 
     void FixedUpdate()
     {
-        
+        if(Hoverboard.IsAttachedToSurface())
+        {
+            Heal(chargeRate);
+        }
     }
 
     // Update is called once per frame

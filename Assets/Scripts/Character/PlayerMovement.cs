@@ -7,6 +7,10 @@ public class PlayerMovement : MonoBehaviour {
 
 	public CharacterController2D controller;
 	[field: SerializeField]
+	public int BoostCost { get; set; }
+	[field: SerializeField]
+	public float GroundBoostMultiplier { get; set; }
+	[field: SerializeField]
 	public Hoverboard Hoverboard { get; set; }
 	public float moveSpeed = 50f;
 	[field: SerializeField]
@@ -31,10 +35,17 @@ public class PlayerMovement : MonoBehaviour {
 		isAttached = Hoverboard.IsAttachedToSurface();
 		//Debug.Log($"Horizontal Move: {horizontalMove}, IsAttached {isAttached}");
 		// Move our character
+		Boost boostComp = gameObject.GetComponent<Boost>();
+		bool boostApplied = boostThrust && boostComp.currentBoost >= BoostCost;
+		float boostMultiplier = 1f;
+		if(boostApplied)
+		{
+			boostComp.Hurt(BoostCost);
+			boostMultiplier = GroundBoostMultiplier;
+		}
 		if(isAttached)
 		{
-			float boost = boostThrust ? 10.5f : 1;
-			var move =  Hoverboard.BoardSpeed * horizontalMove * moveSpeed * boost * Time.fixedDeltaTime * Hoverboard.BoardDirection;
+			var move =  Hoverboard.BoardSpeed * horizontalMove * moveSpeed * boostMultiplier * Time.fixedDeltaTime * Hoverboard.BoardDirection;
 			//Debug.Log($"Is Attached Move: {move}");
 			controller.Move(move);
 			if(jumpFlip)
@@ -45,9 +56,9 @@ public class PlayerMovement : MonoBehaviour {
 		}
 		else
 		{
-			if(boostThrust)
+			if(boostApplied)
 			{
-				var thrustForce = Hoverboard.BoardNormal * Hoverboard.ThrustForce;
+				Vector2 thrustForce = Hoverboard.BoardNormal * Hoverboard.ThrustForce;
 				//Debug.Log($"BoostVector: {thrustForce}");
 				controller.Move(thrustForce);
 			}
