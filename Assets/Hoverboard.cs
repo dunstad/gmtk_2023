@@ -40,6 +40,8 @@ public class Hoverboard : MonoBehaviour
     [field: SerializeField]
     public Rigidbody2D ParentBody { get; set; }
 
+    public float attachmentStrength;
+
     public Vector2 BoardDirection 
     { 
         get
@@ -77,9 +79,12 @@ public class Hoverboard : MonoBehaviour
     }
     void FixedUpdate() 
     {
-        Vector2 downBoardForce = BoardNormal * -1 * 500;
+        Vector2 downBoardForce = BoardNormal * -1 * attachmentStrength;
         if(IsAttachedToSurface())
         {
+            ParentBody.angularVelocity = 0f;
+            // prevent bouncing away from attached surface
+            ParentBody.velocity = Vector2.Dot(ParentBody.velocity, BoardDirection) * BoardDirection;
             ParentBody.AddForce(downBoardForce);
         }
         else

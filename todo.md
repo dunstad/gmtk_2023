@@ -1,5 +1,7 @@
 #### next
 - fix attachment bug (seems to happen when top of cat hits stuff)
+- make jump detach from surface
+- jittery rotation on curves?
 - sprite atlas? whatever thing splits up a sheet that's all one image
 
 #### later
