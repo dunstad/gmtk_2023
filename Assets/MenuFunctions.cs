@@ -7,7 +7,7 @@ public class MenuManager : MonoBehaviour {
     public void ExitNow()
     {
         Application.Quit();
-        UnityEditor.EditorApplication.isPlaying = false;
+        // UnityEditor.EditorApplication.isPlaying = false;
     }
 
 }

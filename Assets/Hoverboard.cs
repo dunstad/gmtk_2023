@@ -120,6 +120,7 @@ public class Hoverboard : MonoBehaviour
         Vector2 newBoardNormal2 = new Vector2(newBoardNormal3.x, newBoardNormal3.y);
         //Debug.Log($"Board Normal: {BoardNormal}, New Board Normal: {newBoardNormal2}, New Board Normal 3: {newBoardNormal3}");
         BoardNormal = newBoardNormal2.normalized;
+        ParentBody.angularVelocity = 0f;
         ParentBody.MoveRotation(newAngle);
     }
     public void RotateCounterClockwise(float degrees)
@@ -130,6 +131,7 @@ public class Hoverboard : MonoBehaviour
     {
         var angle = Vector2.SignedAngle(new Vector2(0,1), newDirection);
         //Debug.Log($"Before set Rotation {ParentBody.rotation}, Setting to {angle}");
+        ParentBody.angularVelocity = 0f;
         ParentBody.MoveRotation(angle);
         //ParentBody.rotation = angle;
         BoardNormal = newDirection;
