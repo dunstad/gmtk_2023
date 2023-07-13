@@ -41,6 +41,8 @@ public class Hoverboard : MonoBehaviour
     public Rigidbody2D ParentBody { get; set; }
 
     public float attachmentStrength;
+    [field: SerializeField]
+    public float groundCheckDistance { get; set; }
 
     public Vector2 BoardDirection 
     { 
@@ -153,12 +155,12 @@ public class Hoverboard : MonoBehaviour
 	{
         Vector2 downFromBoard = new Vector2(BoardDirection.y, -BoardDirection.x);
         int layerMask = 1 << LayerMask.NameToLayer("Terrain");
-        RaycastHit2D hit = Physics2D.Raycast(ParentBody.position, downFromBoard, Mathf.Infinity, layerMask);
+        RaycastHit2D hit = Physics2D.Raycast(ParentBody.position, downFromBoard, groundCheckDistance, layerMask);
         // Debug.Log($"Raycast Origin: {ParentBody.position}, Direction {downFromBoard}, Hit Normal: {hit.normal}, LayerMask {layerMask}");
         // Debug.Log($"Hit dist: {hit.distance}, Collider Obj: {hit.collider.gameObject}");
         //Debug.Log($"BoardDirection {BoardDirection} Down from Board {downFromBoard}, Raycast Hit {hit.normal}");
 		var normal = hit.normal;
-        if(normal != BoardNormal)
+        if(normal != BoardNormal && normal != Vector2.zero)
         {  
             SetRotationTo(normal);
         }
@@ -168,13 +170,13 @@ public class Hoverboard : MonoBehaviour
 	{
         m_lastCollision = other;
         Vector2 downFromBoard = new Vector2(BoardDirection.y, -BoardDirection.x);
-        RaycastHit2D hit = Physics2D.Raycast(ParentBody.centerOfMass, downFromBoard);
+        RaycastHit2D hit = Physics2D.Raycast(ParentBody.centerOfMass, downFromBoard, groundCheckDistance);
 		var normal = hit.normal;
         LatchedSurface = hit.collider.gameObject;
         // Debug.Log($"Raycast Origin: {ParentBody.position}, Direction {downFromBoard}, Hit Normal: {hit.normal}, LayerMask {layerMask}");
         // Debug.Log($"Hit dist: {hit.distance}, Collider Obj: {hit.collider.gameObject}");
         // Debug.Log($"BoardDirection {BoardDirection} Down from Board {downFromBoard}, Raycast Hit {hit.normal}");
-        if(normal != BoardNormal)
+        if(normal != BoardNormal && normal != Vector2.zero)
         {  
             SetRotationTo(normal);
         }

@@ -97,8 +97,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d629c6d7f5e27be4d9dfc9d273f7ec62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <LatchDistance>k__BackingField: 0
+  <LatchDistance>k__BackingField: 1
   <BoardSpeed>k__BackingField: 400
   <ThrustForce>k__BackingField: 1500
   <ParentBody>k__BackingField: {fileID: 0}
-  attachmentStrength: 0
+  attachmentStrength: 100
+  <groundCheckDistance>k__BackingField: 1

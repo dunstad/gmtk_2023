@@ -1,8 +1,9 @@
 #### next
-- fix attachment bug (seems to happen when top of cat hits stuff)
-- make jump detach from surface
-- jittery rotation on curves?
+- sometimes need to rotate to regain control?
 - fix jumping
+  - move it to Hoverboard? or access latched state from CharController?
+  - make jump detach from surface
+- jittery rotation on curves?
 
 #### later
 - try velocity lookahead for camera?

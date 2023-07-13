@@ -1009,17 +1009,9 @@ PrefabInstance:
       value: HoverBoard
       objectReference: {fileID: 0}
     - target: {fileID: 4505208732875673140, guid: 2bece56881aa4c24bb7ae1ad95758083, type: 3}
-      propertyPath: attachmentStrength
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 4505208732875673140, guid: 2bece56881aa4c24bb7ae1ad95758083, type: 3}
       propertyPath: <ParentBody>k__BackingField
       value: 
       objectReference: {fileID: 2505484425292110991}
-    - target: {fileID: 4505208732875673140, guid: 2bece56881aa4c24bb7ae1ad95758083, type: 3}
-      propertyPath: <LatchDistance>k__BackingField
-      value: 500
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
