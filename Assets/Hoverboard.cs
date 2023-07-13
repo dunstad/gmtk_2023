@@ -87,10 +87,10 @@ public class Hoverboard : MonoBehaviour
             ParentBody.velocity = Vector2.Dot(ParentBody.velocity, BoardDirection) * BoardDirection;
             ParentBody.AddForce(downBoardForce);
         }
-        else
-        {
+        // else
+        // {
             int layerMask = 1 << LayerMask.NameToLayer("Terrain");
-            RaycastHit2D hit = Physics2D.Raycast(ParentBody.position, downBoardForce, 10, layerMask);
+            RaycastHit2D hit = Physics2D.Raycast(ParentBody.position, downBoardForce, LatchDistance, layerMask);
             if(hit.collider != null)
             {
                 Debug.Log($"Not attached, but raycast hit {hit.collider.name}");
@@ -106,7 +106,7 @@ public class Hoverboard : MonoBehaviour
                 LatchedSurface = null;
             }
             
-        }
+        // }
     }
 
     public bool IsAttachedToSurface()

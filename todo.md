@@ -2,6 +2,7 @@
 - fix attachment bug (seems to happen when top of cat hits stuff)
 - make jump detach from surface
 - jittery rotation on curves?
+- fix jumping
 
 #### later
 - try velocity lookahead for camera?
